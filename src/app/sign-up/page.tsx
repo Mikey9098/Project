@@ -1,8 +1,10 @@
+import SingUp from "@/components/SingUp";
 import React from "react";
-import SignIn from "@/components/SignIn";
+
 const page = () => {
   return (
-    <div className="bg-background w-full h-screen">
+    <div>
+      <SingUp />
     </div>
   );
 };
