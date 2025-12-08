@@ -3,7 +3,7 @@ import React, { use, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-
+const api_key = "244a4500c7e22cc577de5fe2cb296502";
 export default function MovieDetailPage({
   params,
 }: {
@@ -17,35 +17,36 @@ export default function MovieDetailPage({
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
-      const relatedResponse = await fetch(
-        `https://api.themoviedb.org/3/movie/${id}/similar?api_key=8476a7ab80ad76f0936744df0430e67c&language=en-US&page=1`
-      );
-      const relatedData = await relatedResponse.json();
-      setRelatedMovies(relatedData.results || []);
+      const [detailsRes, trailersRes, creditsRes, relatedRes] =
+        await Promise.all([
+          fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${api_key}`),
+          fetch(
+            `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${api_key}`
+          ),
+          fetch(
+            `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${api_key}`
+          ),
+          fetch(
+            `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${api_key}`
+          ),
+        ]);
 
-      const response = await fetch(
-        `https://api.themoviedb.org/3/movie/${id}?api_key=8476a7ab80ad76f0936744df0430e67c&language=en-US`
-      );
-      const trailersResponse = await fetch(
-        `https://api.themoviedb.org/3/movie/${id}/videos?api_key=8476a7ab80ad76f0936744df0430e67c`
-      );
-      const creditsResponse = await fetch(
-        `https://api.themoviedb.org/3/movie/${id}/credits?api_key=8476a7ab80ad76f0936744df0430e67c`
-      );
+      const detailsData = await detailsRes.json();
+      const trailersData = await trailersRes.json();
+      const creditsData = await creditsRes.json();
+      const relatedData = await relatedRes.json();
 
-      const data = await response.json();
-      const trailersData = await trailersResponse.json();
-      const creditsData = await creditsResponse.json();
-
-      setDetails(data);
+      setDetails(detailsData);
       setTrailers(trailersData.results || []);
       setCredits(creditsData);
+      setRelatedMovies(relatedData.results || []);
     };
     fetchMovieDetails();
   }, [id]);
 
-  if (!details || !trailers || !credits || !relatedMovies)
-    return <div>Loading...</div>;
+  if (!details || !trailers || !credits || relatedMovies.length === 0) {
+    return <MovieSkeleton />;
+  }
 
   const trailer = trailers.find(
     (t: any) => t.site === "YouTube" && t.type === "Trailer"
@@ -92,10 +93,10 @@ export default function MovieDetailPage({
               <h1 className="text-right pr-20 text-4xl font-bold mb-4">
                 {details.title}
               </h1>
-              <p className="font-bold pb-3 text-lg">
+              <p className="font-bold text-2xl pb-3 ">
                 {details.genres.map((g: any) => g.name).join(", ")}
               </p>
-              <p className="mb-2 text-secondary">{details.overview}</p>
+              <p className="mb-2 text-secondary text-xl">{details.overview}</p>
               <p className="mb-2">
                 <strong>Release Date:</strong> {details.release_date}
               </p>
@@ -170,7 +171,7 @@ export default function MovieDetailPage({
         {/* Crew Section */}
         <div className="p-8 space-y-4 w-full">
           <h1 className="font-bold text-2xl text-center md:text-left">Crew</h1>
-          {/* Added flex-wrap and justify-center for small screens */}
+
           <div className="flex flex-wrap justify-center md:justify-start gap-6 md:gap-10">
             {credits?.crew
               ?.filter((member: any) => member.profile_path)
@@ -196,6 +197,37 @@ export default function MovieDetailPage({
                 </div>
               ))}
           </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function MovieSkeleton() {
+  return (
+    <div className="bg-primary min-h-screen p-8 animate-pulse">
+      <div className="w-full h-96 bg-gray-700 rounded-lg mb-8" />
+
+      <div className="flex flex-row justify-around gap-20">
+        <div className="max-w-120 w-full h-[500px] bg-gray-700 rounded-lg" />
+
+        <div className="flex flex-col gap-6 max-w-3xl w-full">
+          <div className="h-10 bg-gray-700 w-3/4 self-end" />
+          <div className="h-6 bg-gray-700 w-1/2" />
+          <div className="h-32 bg-gray-700 w-full" />
+          <div className="h-12 bg-gray-700 w-32" />
+        </div>
+      </div>
+
+      <div className="mt-20">
+        <div className="h-8 bg-gray-700 w-48 mb-6" />
+        <div className="flex gap-5 overflow-hidden">
+          {[1, 2, 3, 4, 5, 6].map((i) => (
+            <div
+              key={i}
+              className="min-w-[180px] h-[270px] bg-gray-700 rounded-lg"
+            />
+          ))}
         </div>
       </div>
     </div>

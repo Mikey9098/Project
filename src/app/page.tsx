@@ -57,8 +57,7 @@ const Page = () => {
   if (!movies || !topRated || !recommended)
     return (
       <div className=" w-full h-screen flex justify-center align-middle">
-        {" "}
-        Loading...{" "}
+        Loading...
       </div>
     );
 
