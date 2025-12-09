@@ -5,6 +5,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Button } from "./ui/button";
 import { Menu } from "lucide-react";
 import Image from "next/image";
+import MobileHeader from "./mobileHeader";
 
 export default function Header() {
   const [searchValue, setSearchValue] = useState("");
@@ -39,10 +40,10 @@ export default function Header() {
       if (debounceRef.current) clearTimeout(debounceRef.current);
     };
   }, [searchValue]);
+  console.log(searchValue);
 
   return (
     <header className="w-full flex items-center place-content-between py-3 px-5 bg-[black] border-b border-[#222] relative">
-      {/* Logo */}
       <div>
         <Link href={"/"}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
@@ -82,7 +83,7 @@ export default function Header() {
         />
 
         {showDropdown && results.length > 0 && (
-          <div className="absolute top-12 left-0 w-[240px] bg-[#111] border border-[#333] rounded-lg shadow-lg max-h-[300px] overflow-y-auto z-50">
+          <div className="absolute top-12 left-0 w-60 bg-[#111] border border-[#333] rounded-lg shadow-lg max-h-[300px] overflow-y-auto z-50">
             {results.map((movie: any) => (
               <Link
                 key={movie.id}
@@ -131,17 +132,16 @@ export default function Header() {
             Sign In
           </button>
         </Link>
-
-        <MobileHeader />
       </div>
+      <MobileHeader />
     </header>
   );
 }
 
-const MobileHeader = () => {
-  return (
-    <Button className="md:hidden">
-      <Menu />
-    </Button>
-  );
-};
+// const MobileHeader = () => {
+//   return (
+//     <Button className="md:hidden ">
+//       <Menu />
+//     </Button>
+//   );
+// };

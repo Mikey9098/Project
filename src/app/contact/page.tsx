@@ -1,9 +1,6 @@
-// components/ContactUsFooter.js (or integrated into your main legal page)
-
 import React from "react";
 
 const ContactUs = () => {
-  // --- Dummy Contact Information for "CineStream" ---
   const contactInfo = {
     heading: " Contacting CineStream (The Credits Roll)",
     content: [
@@ -29,22 +26,17 @@ const ContactUs = () => {
       "Please allow sufficient time for our team to review your inquiry while simultaneously attempting to watch the entire backlog of 80s action films.",
   };
 
-  // --- Tailwind Component Render ---
   return (
-    // Note: Using the same dark theme classes for integration
-    <div className="bg-primary pt-6 text-white">
+    <div className="bg-primary pt-6 h-screen w-full text-white">
       <div className="max-w-4xl mx-auto p-6 lg:p-10 font-sans">
-        {/* Section Heading - Bright red for emphasis */}
         <h2 className="text-2xl font-semibold text-red-400 mb-4 border-t border-gray-700 pt-6">
           {contactInfo.heading}
         </h2>
 
-        {/* Introductory Paragraph */}
         <p className="mb-6 text-base leading-relaxed text-white">
           {contactInfo.content[0]}
         </p>
 
-        {/* Contact Methods List */}
         <ul className="space-y-4 bg-gray-800 p-6 rounded-lg border border-red-600/50">
           {contactInfo.methods.map((method, index) => (
             <li key={index} className="text-sm">
@@ -56,7 +48,6 @@ const ContactUs = () => {
           ))}
         </ul>
 
-        {/* Final Note */}
         <p className="mt-8 text-sm italic text-gray-400">
           {contactInfo.finalNote}
         </p>
