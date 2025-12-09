@@ -60,7 +60,7 @@ export default function MovieDetailPage({
 
     fetchMovieDetails();
   }, [id]);
-
+console.log(trailers)
   if (!details || !trailers || !credits || !relatedMovies)
     return (
       <div>

@@ -42,7 +42,6 @@ const HomeSkeleton = () => (
   </div>
 );
 
-// --- MAIN PAGE COMPONENT ---
 const MOVIE_LIMIT = 20;
 const CAROUSEL_LIMIT = 5;
 
