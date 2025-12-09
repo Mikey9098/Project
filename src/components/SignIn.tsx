@@ -1,20 +1,11 @@
 "use client";
-import React from "react";
-import { Card, CardTitle } from "./ui/card";
-import { Input } from "./ui/input";
-import { Checkbox } from "./ui/checkbox";
-import { Button } from "./ui/button";
-import { ThemeProvider as NextThemesProvider } from "next-themes";
-import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import ReactCardFlip from "react-card-flip";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { ErxesLogo } from "./ErxesLogo";
+import { Button } from "./ui/button";
+import { Card } from "./ui/card";
+import { Checkbox } from "./ui/checkbox";
+import { Input } from "./ui/input";
+import Link from "next/link";
 
 const SignIn = () => {
   const { theme } = useTheme();
@@ -22,10 +13,7 @@ const SignIn = () => {
     <div className="bg-background w-full h-screen flex justify-center flex-col items-center">
       <div></div>
       <div className="flex justify-center flex-col items-center pt-5 pb-20">
-        <ErxesLogo
-          className="text-foreground size-52"
-          fill={theme === "light" ? "black" : "white"}
-        />
+        <ErxesLogo className="text-foreground size-52" fill={"black"} />
         <p className="text-foreground text-4xl ">Sign in to your account</p>
       </div>
       <Card className="w-100 px-5">
@@ -43,16 +31,21 @@ const SignIn = () => {
             <label htmlFor="terms">Remember me!</label>
           </div>
 
-          <div>
+          {/* <div>
             <a href="#" className=" font-semibold">
               Forgot password?
             </a>
-          </div>
+          </div> */}
         </div>
-        <Button className=" cursor-pointer">Sign In</Button>
-        <Button variant="outline" className=" cursor-pointer">
-          Sign up
-        </Button>
+        <Link href={"/"} className="w-full">
+          <Button className=" cursor-pointer w-full">Sign In</Button>
+        </Link>
+
+        <Link href={"/sign-up"} className="w-full">
+          <Button variant="outline" className=" cursor-pointer w-full">
+            Sign up
+          </Button>
+        </Link>
       </Card>
     </div>
   );

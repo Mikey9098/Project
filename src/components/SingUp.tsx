@@ -1,20 +1,10 @@
 "use client";
-import React from "react";
-import { Card, CardTitle } from "./ui/card";
-import { Input } from "./ui/input";
-import { Checkbox } from "./ui/checkbox";
-import { Button } from "./ui/button";
-import { ThemeProvider as NextThemesProvider } from "next-themes";
-import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import ReactCardFlip from "react-card-flip";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { ErxesLogo } from "./ErxesLogo";
+import { Button } from "./ui/button";
+import { Card } from "./ui/card";
+import { Input } from "./ui/input";
+import Link from "next/link";
 const SingUp = () => {
   const { theme } = useTheme();
   return (
@@ -35,8 +25,15 @@ const SingUp = () => {
         <Input placeholder="Re-Enter Password"></Input>
         <label htmlFor="email">Email Address:</label>
         <Input placeholder="Erxes@example.com"></Input>
-        <Button>Sign Up</Button>
-        <Button variant="outline">Sign In</Button>
+
+        <Link href={"/"} className="w-full">
+          <Button className="w-full">Sign Up</Button>
+        </Link>
+        <Link href={"/sign-in"} className="w-full">
+          <Button variant="outline" className="w-full">
+            Sign In
+          </Button>
+        </Link>
       </Card>
     </div>
   );
