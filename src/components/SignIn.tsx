@@ -1,5 +1,4 @@
 "use client";
-import { useTheme } from "next-themes";
 import { ErxesLogo } from "./ErxesLogo";
 import { Button } from "./ui/button";
 import { Card } from "./ui/card";
@@ -8,13 +7,16 @@ import { Input } from "./ui/input";
 import Link from "next/link";
 
 const SignIn = () => {
-  const { theme } = useTheme();
   return (
-    <div className="bg-background w-full h-screen flex justify-center flex-col items-center">
+    <div className=" w-full h-screen flex justify-center flex-col bg-primary  items-center">
       <div></div>
       <div className="flex justify-center flex-col items-center pt-5 pb-20">
-        <ErxesLogo className="text-foreground size-52" fill={"black"} />
-        <p className="text-foreground text-4xl ">Sign in to your account</p>
+        {/* <ErxesLogo className="text-foreground size-52" fill={"black"} /> */}
+        <img
+          src="https://office.erxes.io/gateway/pl:core/read-file?key=0.2424155068893934erxesTransparentlogo.png"
+          className="w-60"
+        />
+        <p className="text-white  text-4xl ">Sign in to your account</p>
       </div>
       <Card className="w-100 px-5">
         <div>
@@ -23,19 +25,13 @@ const SignIn = () => {
         </div>
         <div>
           <label htmlFor="password">Password</label>
-          <Input></Input>
+          <Input type="password" />
         </div>
         <div className="flex justify-between">
           <div className="">
             <Checkbox className=" cursor-pointer"></Checkbox>
             <label htmlFor="terms">Remember me!</label>
           </div>
-
-          {/* <div>
-            <a href="#" className=" font-semibold">
-              Forgot password?
-            </a>
-          </div> */}
         </div>
         <Link href={"/"} className="w-full">
           <Button className=" cursor-pointer w-full">Sign In</Button>

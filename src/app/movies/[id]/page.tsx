@@ -60,7 +60,7 @@ export default function MovieDetailPage({
 
     fetchMovieDetails();
   }, [id]);
-console.log(trailers)
+  console.log(trailers);
   if (!details || !trailers || !credits || !relatedMovies)
     return (
       <div>
@@ -129,7 +129,7 @@ console.log(trailers)
             <div>
               {details.homepage && (
                 <Button
-                  className="bg-secondary text-white hover:bg-secondary/80"
+                  className="cursor-pointer bg-secondary text-white hover:bg-secondary/80"
                   onClick={() => window.open(details.homepage, "_blank")}
                 >
                   Main Page
@@ -163,17 +163,15 @@ console.log(trailers)
       </div>
 
       <div className="flex flex-col justify-center items-center">
-        {/* Cast Section */}
-
         <div className="p-8 space-y-4 w-full">
           <h1 className="font-bold text-2xl text-center md:text-left">Casts</h1>
 
-          <div className="flex flex-wrap justify-center md:justify-start g6ap- md:gap-9">
+          <div className="flex flex-wrap justify-center md:justify-start gap-6 md:gap-9">
             {credits?.cast
 
               ?.filter((member: any) => member.profile_path)
 
-              .slice(0, 7)
+              .slice(0, 6)
 
               .map((member: any, index: number) => (
                 <div
@@ -200,19 +198,15 @@ console.log(trailers)
           </div>
         </div>
 
-        {/* Crew Section */}
-
         <div className="p-8 space-y-4 w-full">
           <h1 className="font-bold text-2xl text-center md:text-left">Crew</h1>
-
-          {/* Added flex-wrap and justify-center for small screens */}
 
           <div className="flex flex-wrap justify-center md:justify-start gap-6 md:gap-10">
             {credits?.crew
 
               ?.filter((member: any) => member.profile_path)
 
-              .slice(0, 7)
+              .slice(0, 6)
 
               .map((member: any, index: number) => (
                 <div

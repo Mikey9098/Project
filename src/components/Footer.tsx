@@ -1,7 +1,9 @@
 "use client";
+
+import Link from "next/link";
 export default function Footer() {
   return (
-    <footer className="w-full px-4 py-5 bg-black border-t border-[#aaa] mt-10 flex justify-between text-[#aaa] text-sm">
+    <footer className="w-full p-15 bg-black  flex justify-between text-[#aaa] text-lg">
       <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
         <img
           src="https://office.erxes.io/gateway/pl:core/read-file?key=0.2424155068893934erxesTransparentlogo.png"
@@ -13,32 +15,32 @@ export default function Footer() {
 
       {}
       <div style={{ display: "flex", gap: "16px" }}>
-        <a
-          href="#"
+        <Link
+          href={"/terms"}
           style={{ color: "#aaa", textDecoration: "none", transition: "0.2s" }}
           onMouseEnter={(e) => (e.currentTarget.style.color = "white")}
           onMouseLeave={(e) => (e.currentTarget.style.color = "#aaa")}
         >
           Terms
-        </a>
+        </Link>
 
-        <a
-          href="#"
+        <Link
+          href="/privacy"
           style={{ color: "#aaa", textDecoration: "none", transition: "0.2s" }}
           onMouseEnter={(e) => (e.currentTarget.style.color = "white")}
           onMouseLeave={(e) => (e.currentTarget.style.color = "#aaa")}
         >
           Privacy
-        </a>
+        </Link>
 
-        <a
-          href="#"
+        <Link
+          href="/contact"
           style={{ color: "#aaa", textDecoration: "none", transition: "0.2s" }}
           onMouseEnter={(e) => (e.currentTarget.style.color = "white")}
           onMouseLeave={(e) => (e.currentTarget.style.color = "#aaa")}
         >
           Contact
-        </a>
+        </Link>
       </div>
     </footer>
   );
