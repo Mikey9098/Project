@@ -16,7 +16,9 @@ const SignIn = () => {
           src="https://office.erxes.io/gateway/pl:core/read-file?key=0.2424155068893934erxesTransparentlogo.png"
           className="w-60"
         />
-        <p className="text-white  text-4xl ">Sign in to your account</p>
+        <p className="text-white  text-4xl font-bold ">
+          Sign in to your account
+        </p>
       </div>
       <Card className="w-100 px-5">
         <div>

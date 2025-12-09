@@ -14,7 +14,9 @@ const SingUp = () => {
           className="text-foreground size-52"
           fill={theme === "light" ? "black" : "white"}
         />
-        <p className="text-foreground text-4xl ">Sign up to your account</p>
+        <p className="text-foreground text-4xl font-bold">
+          Sign up to your account
+        </p>
       </div>
       <Card className="grid px-5 w-150 mt-20">
         <label htmlFor="Username">Username:</label>

@@ -141,7 +141,7 @@ const Page = () => {
                     alt={movie.title}
                     fill
                     className="object-cover"
-                    priority // Ensures hero loads fast
+                    priority
                     unoptimized
                   />
                 </Link>

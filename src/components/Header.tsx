@@ -40,7 +40,6 @@ export default function Header() {
       if (debounceRef.current) clearTimeout(debounceRef.current);
     };
   }, [searchValue]);
-  console.log(searchValue);
 
   return (
     <header className="w-full flex items-center place-content-between py-3 px-5 bg-[black] border-b border-[#222] relative">
@@ -108,7 +107,7 @@ export default function Header() {
                       {movie.title}
                     </p>
                     <p className="text-gray-400 text-xs">
-                      {movie.release_date?.slice(0, 4) || "N/A"}
+                      {movie.release_date?.slice(0, 6) || "N/A"}
                     </p>
                   </div>
                 </div>
