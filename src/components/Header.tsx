@@ -1,18 +1,7 @@
 "use client";
 export default function Header() {
   return (
-    <header className=""
-      //style={{
-        //width: "100%",
-        //display: "flex",
-        //alignItems: "center",
-       // justifyContent: "space-between",
-        //padding: "12px 20px",
-        //background: "black",
-        //kborderBottom: "1px solid #222",
-      //}}
-    >
-      {}
+    <header className="w-full flex items-center justify-between py-3 px-5 bg-[black] border-b border-[#222]">
       <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
         <img
           src="https://office.erxes.io/gateway/pl:core/read-file?key=0.2424155068893934erxesTransparentlogo.png"

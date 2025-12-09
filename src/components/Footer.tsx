@@ -1,22 +1,7 @@
 "use client";
 export default function Footer() {
   return (
-    <footer
-    className="w-full px-4 py-5 bg-black border-t border-[#aaa] mt-10 flex justify-between text-[#aaa] text-sm"
-    //   style={{
-    //     width: "100%",
-    //     padding: "16px 20px",
-    //     background: "black",
-    //     borderTop: "1px solid #222",
-    //     marginTop: "40px",
-    //     display: "flex",
-    //     justifyContent: "space-between",
-    //     alignItems: "center",
-    //     color: "#aaa",
-    //     fontSize: "14px",
-    //   }}
-    >
-      {}
+    <footer className="w-full px-4 py-5 bg-black border-t border-[#aaa] mt-10 flex justify-between text-[#aaa] text-sm">
       <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
         <img
           src="https://office.erxes.io/gateway/pl:core/read-file?key=0.2424155068893934erxesTransparentlogo.png"
