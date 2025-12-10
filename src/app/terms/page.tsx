@@ -62,7 +62,7 @@ const MovieWebsiteTerms = () => {
         {/* Header Section */}
         {/* Accent border remains red, text is bright red for visibility */}
         <header className="border-b border-red-600 pb-4 mb-8 text-center">
-          <h1 className="text-3xl lg:text-4xl font-extrabold text-red-500 leading-tight">
+          <h1 className="text-3xl lg:text-4xl font-extrabold text-gray-200 leading-tight">
             {movieTerms.title}
           </h1>
           <p className="text-md mt-2 text-gray-400">
@@ -81,7 +81,7 @@ const MovieWebsiteTerms = () => {
             // Border is now a lighter gray to show up against bg-primary
             <div key={index} className="pb-4 border-b border-gray-700">
               {/* Section Heading - Bright red for emphasis */}
-              <h2 className="text-2xl font-semibold text-red-400 mb-4">
+              <h2 className="text-2xl font-semibold text-gray-200 mb-4">
                 {section.heading}
               </h2>
 

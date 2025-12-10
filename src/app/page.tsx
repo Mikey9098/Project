@@ -128,7 +128,7 @@ const Page = () => {
                   href={`movies/${movie.id}`}
                   className="block w-full h-full relative"
                 >
-                  <div className="absolute inset-0 flex flex-col justify-center pl-10 w-2/3 h-full bg-linear-to-r from-black/80 to-black/20 z-10">
+                  <div className="absolute inset-0 flex flex-col justify-center pl-10 w-full h-full bg-linear-to-r from-black/80 to-black/10 z-10">
                     <h1 className="text-white font-bold text-3xl mb-4">
                       {movie.title}
                     </h1>

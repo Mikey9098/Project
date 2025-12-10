@@ -96,49 +96,52 @@ export default function MovieDetailPage({
           </div>
         )}
       </div>
-
-      {details && (
-        <div className="flex flex-row justify-around gap-20 p-8">
-          <div className="max-w-120 w-full  relative">
-            <Image
-              src={`https://image.tmdb.org/t/p/original${details.backdrop_path}`}
-              alt={details.title}
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="object-cover"
-            />
-          </div>
-
-          <div className="flex flex-col gap-10 max-w-3xl">
-            <div>
-              <h1 className="text-right pr-20 text-4xl font-bold mb-4">
-                {details.title}
-              </h1>
-
-              <p className="font-bold text-2xl pb-3 ">
-                {details.genres.map((g: any) => g.name).join(", ")}
-              </p>
-
-              <p className="mb-2 text-secondary text-xl">{details.overview}</p>
-
-              <p className="mb-2">
-                <strong>Release Date:</strong> {details.release_date}
-              </p>
+      <div className="md:visible">
+        {details && (
+          <div className="flex flex-col sm:flex-row justify-around gap-20 p-8">
+            <div className="w-full sm:w-[50%] md:max-w-120 h-80 shrink-0 relative">
+              <Image
+                src={`https://image.tmdb.org/t/p/original${details.backdrop_path}`}
+                alt={details.title}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover"
+              />
             </div>
 
-            <div>
-              {details.homepage && (
-                <Button
-                  className="cursor-pointer bg-secondary text-white hover:bg-secondary/80"
-                  onClick={() => window.open(details.homepage, "_blank")}
-                >
-                  Main Page
-                </Button>
-              )}
+            <div className="flex flex-col gap-10 max-w-3xl">
+              <div>
+                <h1 className="text-right pr-20 text-4xl font-bold mb-4">
+                  {details.title}
+                </h1>
+
+                <p className="font-bold text-2xl pb-3 ">
+                  {details.genres.map((g: any) => g.name).join(", ")}
+                </p>
+
+                <p className="mb-2 text-secondary text-xl">
+                  {details.overview}
+                </p>
+
+                <p className="mb-2">
+                  <strong>Release Date:</strong> {details.release_date}
+                </p>
+              </div>
+
+              <div>
+                {details.homepage && (
+                  <Button
+                    className="cursor-pointer bg-secondary text-white hover:bg-secondary/80"
+                    onClick={() => window.open(details.homepage, "_blank")}
+                  >
+                    Main Page
+                  </Button>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
 
       <div className="p-8 space-y-4">
         <h1 className="font-bold text-2xl mb-4">Related Movies</h1>

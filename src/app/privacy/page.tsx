@@ -50,7 +50,7 @@ const MovieWebsitePrivacyPolicy = () => {
     <div className="bg-primary min-h-screen text-white">
       <div className="max-w-4xl mx-auto p-6 lg:p-10 font-sans">
         <header className="border-b border-red-600 pb-4 mb-8 text-center">
-          <h1 className="text-3xl lg:text-4xl font-extrabold text-red-500 leading-tight">
+          <h1 className="text-3xl lg:text-4xl font-extrabold text-gray-200 leading-tight">
             {privacyPolicy.title}
           </h1>
           <p className="text-md mt-2 text-gray-400">
@@ -65,7 +65,7 @@ const MovieWebsitePrivacyPolicy = () => {
         <div className="space-y-10">
           {privacyPolicy.sections.map((section, index) => (
             <div key={index} className="pb-4 border-b border-gray-700">
-              <h2 className="text-2xl font-semibold text-red-400 mb-4">
+              <h2 className="text-2xl font-semibold text-gray-200 mb-4">
                 {section.heading}
               </h2>
 

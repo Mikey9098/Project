@@ -29,7 +29,7 @@ const ContactUs = () => {
   return (
     <div className="bg-primary pt-6 h-screen w-full text-white">
       <div className="max-w-4xl mx-auto p-6 lg:p-10 font-sans">
-        <h2 className="text-2xl font-semibold text-red-400 mb-4 border-t border-gray-700 pt-6">
+        <h2 className="text-2xl font-semibold text-gray-200 mb-4 border-t border-gray-700 pt-6">
           {contactInfo.heading}
         </h2>
 
@@ -37,10 +37,10 @@ const ContactUs = () => {
           {contactInfo.content[0]}
         </p>
 
-        <ul className="space-y-4 bg-gray-800 p-6 rounded-lg border border-red-600/50">
+        <ul className="space-y-4 bg-gray-800 p-6 rounded-lg border border-red-800/50">
           {contactInfo.methods.map((method, index) => (
             <li key={index} className="text-sm">
-              <strong className="text-red-300 block mb-1">
+              <strong className="text-blue-200 block mb-1">
                 {method.label}
               </strong>
               <p className="pl-4 text-gray-300 italic">{method.value}</p>
