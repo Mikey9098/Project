@@ -33,7 +33,7 @@ const SingUp = () => {
       </Card>
       <div className="mt-4 text-white flex gap-3">
         <p className="text-gray-400">Already has an account?</p>
-        <Link href={"/sign-up"} className=" text-black font-bold">
+        <Link href={"/sign-in"} className=" text-black font-bold">
           Click here{" "}
         </Link>
       </div>
