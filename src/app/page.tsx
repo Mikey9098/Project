@@ -117,7 +117,7 @@ const Page = () => {
     <>
       <div className="bg-primary w-full">
         <Carousel
-          className="w-full h-screen relative"
+          className="w-full h-500 relative"
           opts={{ loop: true }}
           style={{ overflow: "hidden" }}
         >
